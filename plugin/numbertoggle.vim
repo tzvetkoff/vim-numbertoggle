@@ -15,7 +15,7 @@ function! NumberToggle()
 endfunc
 
 function! UpdateMode()
-  let &numberwidth = max([4, 1 + len(line('$'))])
+  let &numberwidth = max([4, 2 + len(line('$'))])
 
   if g:insertmode == 0
     if g:previousmode == 1
@@ -41,6 +41,7 @@ endfunc
 
 autocmd InsertEnter * :call InsertEnter()
 autocmd InsertLeave * :call InsertLeave()
+autocmd BufReadPost * :let &numberwidth = max([4, 2 + len(line('$'))])
 
 if exists('g:NumberToggleTrigger')
   exec "nnoremap <silent> " . g:NumberToggleTrigger . " :call NumberToggle()<cr>"
