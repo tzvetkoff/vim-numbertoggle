@@ -8,7 +8,7 @@ function! NumberToggle()
   let g:previousmode = &relativenumber
 
   if &relativenumber == 1
-    set number
+    set norelativenumber
   else
     set relativenumber
   endif
@@ -21,10 +21,10 @@ function! UpdateMode()
     if g:previousmode == 1
       set relativenumber
     else
-      set number
+      set norelativenumber
     endif
   else
-    set number
+    set norelativenumber
   endif
 endfunc
 
